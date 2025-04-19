@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmapédia</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Importando Lucide Icons via CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <!-- Página inicial (lista de medicamentos) -->
+  <div id="home-page" class="page active">
+    <div class="container">
+      <header class="app-header">
+        <div class="logo">
+          <i data-lucide="pill"></i>
+          <h1>Farmapédia</h1>
+        </div>
+        <p class="subtitle">Sua enciclopédia de medicamentos</p>
+        <div class="search-container">
+          <i data-lucide="search"></i>
+          <input type="search" id="search-input" placeholder="Buscar medicamento...">
+        </div>
+
+        <div class="category-selector" id="category-filter">
+          <div class="category-chip active" data-category="all">
+            <i data-lucide="layers"></i>
+            Todas
+          </div>
+          <div class="category-chip" data-category="analgesico">
+            <i data-lucide="pill"></i>
+            Analgésico
+          </div>
+          <div class="category-chip" data-category="antibiotico">
+            <i data-lucide="flask-round"></i>
+            Antibiótico
+          </div>
+          <div class="category-chip" data-category="anti-inflamatorio">
+            <i data-lucide="heart-pulse"></i>
+            Anti-inflamatório
+          </div>
+          <div class="category-chip" data-category="outro">
+            <i data-lucide="package"></i>
+            Outros
+          </div>
+        </div>
+      </header>
+
+      <div id="medicines-list" class="medicines-list">
+        <!-- Os medicamentos serão inseridos aqui via JavaScript -->
+      </div>
+
+      <div id="empty-state" class="empty-state">
+        <i data-lucide="flask-round"></i>
+        <p class="empty-title">Nenhum medicamento cadastrado</p>
+        <p class="empty-subtitle">Adicione seu primeiro medicamento clicando no botão abaixo</p>
+      </div>
+
+      <button id="add-button" class="floating-button">
+        <i data-lucide="plus-circle"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Página de detalhes do medicamento -->
+  <div id="detail-page" class="page">
+    <div class="container">
+      <header class="page-header">
+        <button class="back-button" id="detail-back">
+          <i data-lucide="arrow-left"></i>
+        </button>
+        <h2>Detalhes do Medicamento</h2>
+        <div class="actions">
+          <button class="icon-button" id="edit-button">
+            <i data-lucide="edit"></i>
+          </button>
+          <button class="icon-button delete" id="delete-button">
+            <i data-lucide="trash-2"></i>
+          </button>
+        </div>
+      </header>
+
+      <div class="medicine-header">
+        <div class="medicine-icon">
+          <i data-lucide="pill"></i>
+        </div>
+        <h2 id="detail-name"></h2>
+      </div>
+      <p id="detail-description" class="medicine-description"></p>
+
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="card-header teal">
+            <i data-lucide="clock"></i>
+            <h3>Dosagem</h3>
+          </div>
+          <div class="card-content">
+            <p id="detail-dosage"></p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="card-header green">
+            <i data-lucide="beaker"></i>
+            <h3>Uso</h3>
+          </div>
+          <div class="card-content">
+            <p id="detail-usage"></p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="card-header amber">
+            <i data-lucide="alert-triangle"></i>
+            <h3>Efeitos Colaterais</h3>
+          </div>
+          <div class="card-content">
+            <p id="detail-side-effects"></p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="card-header red">
+            <i data-lucide="shield-alert"></i>
+            <h3>Contraindicações</h3>
+          </div>
+          <div class="card-content">
+            <p id="detail-contraindications"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Página de adição de medicamento -->
+  <div id="add-page" class="page">
+    <div class="container">
+      <header class="page-header">
+        <button class="back-button" id="add-back">
+          <i data-lucide="arrow-left"></i>
+        </button>
+        <h2>Adicionar Medicamento</h2>
+      </header>
+
+      <div class="form-container">
+        <div class="form-icon">
+          <i data-lucide="pill"></i>
+        </div>
+
+        <form id="add-form">
+          <div class="form-group">
+            <label for="add-name">Nome do Medicamento *</label>
+            <input type="text" id="add-name" required placeholder="Ex: Paracetamol">
+          </div>
+
+          <div class="form-group">
+            <label for="add-description">Descrição *</label>
+            <textarea id="add-description" required placeholder="Descreva o medicamento..." rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="add-usage">Uso</label>
+            <textarea id="add-usage" placeholder="Como este medicamento deve ser usado..." rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="add-dosage">Dosagem</label>
+            <input type="text" id="add-dosage" placeholder="Ex: 500mg a cada 8 horas">
+          </div>
+
+          <div class="form-group">
+            <label for="add-side-effects">Efeitos Colaterais</label>
+            <textarea id="add-side-effects" placeholder="Possíveis efeitos colaterais..." rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="add-contraindications">Contraindicações</label>
+            <textarea id="add-contraindications" placeholder="Quando não se deve usar este medicamento..." rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="add-category">Categoria</label>
+            <select id="add-category" class="category-select">
+              <option value="analgesico">Analgésico</option>
+              <option value="antibiotico">Antibiótico</option>
+              <option value="anti-inflamatorio">Anti-inflamatório</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+
+          <button type="submit" class="submit-button">Salvar Medicamento</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Página de edição de medicamento -->
+  <div id="edit-page" class="page">
+    <div class="container">
+      <header class="page-header">
+        <button class="back-button" id="edit-back">
+          <i data-lucide="arrow-left"></i>
+        </button>
+        <h2>Editar Medicamento</h2>
+      </header>
+
+      <div class="form-container">
+        <div class="form-icon">
+          <i data-lucide="pill"></i>
+        </div>
+
+        <form id="edit-form">
+          <input type="hidden" id="edit-id">
+          
+          <div class="form-group">
+            <label for="edit-name">Nome do Medicamento *</label>
+            <input type="text" id="edit-name" required placeholder="Ex: Paracetamol">
+          </div>
+
+          <div class="form-group">
+            <label for="edit-description">Descrição *</label>
+            <textarea id="edit-description" required placeholder="Descreva o medicamento..." rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="edit-usage">Uso</label>
+            <textarea id="edit-usage" placeholder="Como este medicamento deve ser usado..." rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="edit-dosage">Dosagem</label>
+            <input type="text" id="edit-dosage" placeholder="Ex: 500mg a cada 8 horas">
+          </div>
+
+          <div class="form-group">
+            <label for="edit-side-effects">Efeitos Colaterais</label>
+            <textarea id="edit-side-effects" placeholder="Possíveis efeitos colaterais..." rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="edit-contraindications">Contraindicações</label>
+            <textarea id="edit-contraindications" placeholder="Quando não se deve usar este medicamento..." rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="edit-category">Categoria</label>
+            <select id="edit-category" class="category-select">
+              <option value="analgesico">Analgésico</option>
+              <option value="antibiotico">Antibiótico</option>
+              <option value="anti-inflamatorio">Anti-inflamatório</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+
+          <button type="submit" class="submit-button">Atualizar Medicamento</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de confirmação de exclusão -->
+  <div id="delete-modal" class="modal">
+    <div class="modal-content">
+      <h3>Excluir medicamento?</h3>
+      <p>Esta ação não pode ser desfeita. Isso excluirá permanentemente este medicamento.</p>
+      <div class="modal-actions">
+        <button id="cancel-delete" class="button-secondary">Cancelar</button>
+        <button id="confirm-delete" class="button-danger">Excluir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast de notificação -->
+  <div id="toast" class="toast">
+    <div class="toast-content">
+      <p id="toast-message"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
