@@ -4,6 +4,7 @@ const pages = {
   detail: document.getElementById("detail-page"),
   add: document.getElementById("add-page"),
   edit: document.getElementById("edit-page"),
+  education: document.getElementById("education-page"),
 }
 
 const elements = {
@@ -55,10 +56,26 @@ let currentCategory = "all" // Categoria atual selecionada
 
 // Funções de navegação
 function navigateTo(pageId) {
+  // Se for a página educacional, redirecionar para education.html
+  if (pageId === "education") {
+    window.location.href = "education.html"
+    return
+  }
+
   Object.values(pages).forEach((page) => {
     page.classList.remove("active")
   })
   pages[pageId].classList.add("active")
+
+  // Atualizar botões de navegação inferior
+  const navButtons = document.querySelectorAll(".nav-button")
+  navButtons.forEach((button) => {
+    if (button.dataset.page === pageId) {
+      button.classList.add("active")
+    } else {
+      button.classList.remove("active")
+    }
+  })
 
   // Scroll para o topo
   window.scrollTo(0, 0)
@@ -172,7 +189,13 @@ function renderMedicinesList() {
       elements.medicinesList.appendChild(card)
     })
 
+    // Adicionar um espaçador no final da lista para evitar que o último item seja cortado
+    const spacer = document.createElement("div")
+    spacer.className = "list-spacer"
+    elements.medicinesList.appendChild(spacer)
+
     // Inicializar ícones Lucide após adicionar ao DOM
+    const lucide = window.lucide
     lucide.createIcons()
   }
 }
@@ -231,6 +254,7 @@ function showMedicineDetails(id) {
   `
 
   medicineHeader.appendChild(categoryBadge)
+  const lucide = window.lucide
   lucide.createIcons()
 
   navigateTo("detail")
@@ -279,7 +303,6 @@ function hideDeleteModal() {
 }
 
 // Event Listeners
-// Atualizar setupEventListeners para incluir eventos de categoria
 function setupEventListeners() {
   // Pesquisa
   elements.searchInput.addEventListener("input", renderMedicinesList)
@@ -304,8 +327,6 @@ function setupEventListeners() {
     hideDeleteModal()
     navigateTo("home")
   })
-
-  // Eventos existentes...
 
   // Adicionar evento para filtro de categorias
   const categoryChips = document.querySelectorAll(".category-chip")
@@ -361,26 +382,15 @@ function setupEventListeners() {
     updateMedicine(updatedMedicine)
     showMedicineDetails(updatedMedicine.id)
   })
-}
 
-// Inicialização
-function init() {
-  // Inicializar ícones Lucide
-  const lucide = window.lucide
-
-  lucide.createIcons()
-
-  // Verificar se já existem medicamentos no localStorage
-  const storedMedicines = localStorage.getItem("medicines")
-  if (!storedMedicines || JSON.parse(storedMedicines).length === 0) {
-    // Se não existirem medicamentos, adicionar dados de exemplo
-    addSampleData()
-  } else {
-    // Se já existirem medicamentos, apenas carregar
-    loadMedicines()
-  }
-
-  setupEventListeners()
+  // Configurar navegação entre páginas principais
+  const navButtons = document.querySelectorAll(".nav-button")
+  navButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const pageId = button.dataset.page
+      navigateTo(pageId)
+    })
+  })
 }
 
 // Adicionar função para criar dados de exemplo
@@ -524,6 +534,21 @@ function addSampleData() {
 
   // Mostrar toast informando que dados de exemplo foram adicionados
   showToast("Dados de exemplo adicionados com sucesso!")
+}
+
+// Inicialização
+function init() {
+  // Verificar se já existem medicamentos no localStorage
+  const storedMedicines = localStorage.getItem("medicines")
+  if (!storedMedicines || JSON.parse(storedMedicines).length === 0) {
+    // Se não existirem medicamentos, adicionar dados de exemplo
+    addSampleData()
+  } else {
+    // Se já existirem medicamentos, apenas carregar
+    loadMedicines()
+  }
+
+  setupEventListeners()
 }
 
 // Iniciar a aplicação quando o DOM estiver carregado

@@ -24,7 +24,6 @@
         </div>
         <p class="subtitle">Sua enciclopédia de medicamentos</p>
         <div class="search-container">
-          <i data-lucide="search"></i>
           <input type="search" id="search-input" placeholder="Buscar medicamento...">
         </div>
 
@@ -60,6 +59,20 @@
         <i data-lucide="flask-round"></i>
         <p class="empty-title">Nenhum medicamento cadastrado</p>
         <p class="empty-subtitle">Adicione seu primeiro medicamento clicando no botão abaixo</p>
+      </div>
+
+      <!-- Adicionar espaçador no final da página -->
+      <div class="page-spacer"></div>
+
+      <div class="bottom-nav">
+        <button class="nav-button active" data-page="home">
+          <i data-lucide="pill"></i>
+          <span>Medicamentos</span>
+        </button>
+        <button class="nav-button" onclick="window.location.href='education.html'">
+          <i data-lucide="book-open"></i>
+          <span>Educacional</span>
+        </button>
       </div>
 
       <button id="add-button" class="floating-button">
@@ -135,6 +148,9 @@
           </div>
         </div>
       </div>
+
+      <!-- Adicionar espaçador no final da página -->
+      <div class="page-spacer"></div>
     </div>
   </div>
 
@@ -197,6 +213,9 @@
           <button type="submit" class="submit-button">Salvar Medicamento</button>
         </form>
       </div>
+
+      <!-- Adicionar espaçador no final da página -->
+      <div class="page-spacer"></div>
     </div>
   </div>
 
@@ -261,8 +280,13 @@
           <button type="submit" class="submit-button">Atualizar Medicamento</button>
         </form>
       </div>
+
+      <!-- Adicionar espaçador no final da página -->
+      <div class="page-spacer"></div>
     </div>
   </div>
+
+  <!-- Espaço reservado para a página educacional -->
 
   <!-- Modal de confirmação de exclusão -->
   <div id="delete-modal" class="modal">

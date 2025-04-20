@@ -60,7 +60,7 @@ body {
   max-width: 480px;
   margin: 0 auto;
   padding: 1rem;
-  padding-bottom: 5rem;
+  padding-bottom: 11rem; /* Aumentado para 11rem */
 }
 
 /* Navegação entre páginas */
@@ -107,30 +107,21 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Atualizar o estilo da barra de pesquisa */
+/* Atualizar o estilo da barra de pesquisa - removendo a lupa */
 .search-container {
   position: relative;
   margin-bottom: 1rem;
 }
 
-.search-container i {
-  position: absolute;
-  left: 0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--teal-500);
-  font-size: 1rem;
-}
-
 .search-container input {
   width: 100%;
-  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  padding: 0.75rem 1rem;
   border-radius: var(--radius-full);
   border: 1px solid var(--teal-200);
   box-shadow: var(--shadow-sm);
   font-family: inherit;
   font-size: 0.875rem;
-  background-color: var(--white); /* Remover o degradê */
+  background-color: var(--white);
 }
 
 .search-container input:focus {
@@ -343,7 +334,7 @@ body {
 /* Botão flutuante */
 .floating-button {
   position: fixed;
-  bottom: 1.5rem;
+  bottom: 5rem; /* Aumentado para ficar acima da barra de navegação */
   right: 1.5rem;
   width: 3.5rem;
   height: 3.5rem;
@@ -598,7 +589,7 @@ body {
 /* Toast de notificação */
 .toast {
   position: fixed;
-  bottom: 1rem;
+  bottom: 5rem; /* Aumentado para ficar acima da barra de navegação */
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--gray-800);
@@ -614,6 +605,302 @@ body {
 
 .toast.active {
   opacity: 1;
+}
+
+/* Barra de navegação inferior - REDESENHADA */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-around;
+  padding: 0.75rem 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 9;
+  border-top: 1px solid var(--teal-100);
+}
+
+.nav-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--gray-500);
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+  width: 45%; /* Reduzir a largura para deixar mais espaço */
+}
+
+.nav-button i {
+  font-size: 1.5rem; /* Aumentar o tamanho do ícone */
+  margin-bottom: 0.25rem;
+}
+
+.nav-button.active {
+  color: var(--teal-600);
+  background-color: var(--teal-50); /* Adicionar fundo para destacar */
+}
+
+.nav-button:hover:not(.active) {
+  background-color: var(--gray-100);
+}
+
+/* Estilos para a página educacional */
+.tab-container {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 2rem;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid var(--teal-100);
+}
+
+.tab {
+  flex: 1;
+  padding: 0.75rem;
+  text-align: center;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab.active {
+  color: var(--teal-600);
+  border-bottom: 2px solid var(--teal-500);
+}
+
+.tab:hover:not(.active) {
+  background-color: var(--teal-50);
+}
+
+.tab-content {
+  display: none;
+  padding: 1rem;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Estilos para o FAQ (accordion) */
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.accordion-item {
+  border: 1px solid var(--teal-100);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.accordion-header {
+  padding: 1rem;
+  background-color: var(--teal-50);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.accordion-header h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--teal-800);
+}
+
+.accordion-content {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordion-content p {
+  padding: 1rem;
+  color: var(--gray-700);
+}
+
+.accordion-content ul {
+  padding: 0 1rem 1rem 2rem;
+  color: var(--gray-700);
+}
+
+.accordion-content li {
+  margin-bottom: 0.5rem;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 500px;
+  padding: 0.5rem 0;
+}
+
+.accordion-item.active .accordion-header {
+  background-color: var(--teal-100);
+}
+
+.accordion-item.active .accordion-header i {
+  transform: rotate(180deg);
+}
+
+/* Estilos para os vídeos */
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.video-card {
+  border: 1px solid var(--teal-100);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.video-thumbnail {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
+}
+
+.video-thumbnail img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-button i {
+  color: var(--white);
+  font-size: 1.5rem;
+}
+
+.video-info {
+  padding: 1rem;
+}
+
+.video-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--teal-800);
+  margin-bottom: 0.5rem;
+}
+
+.video-info p {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin-bottom: 0.75rem;
+}
+
+.video-link {
+  display: inline-block;
+  color: var(--teal-600);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.video-link:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para os artigos */
+.article-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.article-card {
+  display: flex;
+  background-color: var(--white);
+  border: 1px solid var(--teal-100);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.article-icon {
+  background-color: var(--teal-50);
+  border-radius: var(--radius-full);
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.article-icon i {
+  font-size: 1.5rem;
+  color: var(--teal-500);
+}
+
+.article-info {
+  flex: 1;
+}
+
+.article-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--teal-800);
+  margin-bottom: 0.5rem;
+}
+
+.article-info p {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  margin-bottom: 0.5rem;
+}
+
+.article-meta {
+  font-size: 0.75rem;
+  color: var(--gray-500);
+  font-style: italic;
+}
+
+/* Espaçador para evitar que o último item seja cortado pela barra de navegação */
+.list-spacer {
+  height: 8rem; /* Altura aumentada para evitar que o último item seja cortado */
+  width: 100%;
+}
+
+/* Espaçador para todas as páginas */
+.page-spacer {
+  height: 8rem; /* Espaçador para todas as páginas */
+  width: 100%;
 }
 
 /* Responsividade */
@@ -634,4 +921,87 @@ body {
   .medicine-icon i {
     font-size: 1.25rem;
   }
+}
+
+@media (min-width: 640px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Indicador de carregamento */
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.loading-indicator i {
+  font-size: 2.5rem;
+  color: var(--teal-500);
+  animation: spin 1.5s linear infinite;
+  margin-bottom: 1rem;
+}
+
+.loading-indicator p {
+  color: var(--teal-700);
+  font-weight: 500;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estado de erro */
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  text-align: center;
+  background-color: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 2rem 0;
+}
+
+.error-state i {
+  font-size: 3rem;
+  color: var(--red-500);
+  margin-bottom: 1rem;
+}
+
+.error-state h3 {
+  font-size: 1.25rem;
+  color: var(--gray-800);
+  margin-bottom: 0.5rem;
+}
+
+.error-state p {
+  color: var(--gray-600);
+  margin-bottom: 1.5rem;
+}
+
+.retry-button {
+  padding: 0.5rem 1rem;
+  background-color: var(--teal-500);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.retry-button:hover {
+  background-color: var(--teal-600);
 }

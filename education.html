@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmapédia - Educacional</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Importando Lucide Icons via CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Adicionar favicon com emoji -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💊</text></svg>">
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <div class="logo">
+        <i data-lucide="book-open"></i>
+        <h1>Farmapédia</h1>
+      </div>
+      <p class="subtitle">Aprenda sobre o uso responsável de medicamentos</p>
+    </header>
+
+    <div class="tab-container">
+      <div class="tabs">
+        <button class="tab active" data-tab="faq">FAQ</button>
+        <button class="tab" data-tab="videos">Vídeos</button>
+        <button class="tab" data-tab="articles">Artigos</button>
+      </div>
+
+      <div class="tab-content active" id="faq-content">
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h3>Como armazenar medicamentos corretamente?</h3>
+              <i data-lucide="chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+              <p>Os medicamentos devem ser armazenados em local fresco e seco, longe da luz solar direta e da umidade. A maioria dos medicamentos deve ser mantida em temperatura ambiente (15-25°C), a menos que especificado de outra forma na embalagem.</p>
+              <p>Mantenha sempre os medicamentos em suas embalagens originais, com a bula, e fora do alcance de crianças e animais de estimação. Alguns medicamentos, como insulina, precisam ser refrigerados - sempre verifique as instruções específicas.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h3>É seguro tomar medicamentos vencidos?</h3>
+              <i data-lucide="chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+              <p>Não, não é seguro tomar medicamentos vencidos. Após a data de validade, os medicamentos podem perder sua eficácia e, em alguns casos, podem se tornar prejudiciais. A composição química pode se alterar com o tempo, resultando em menor eficácia ou efeitos adversos.</p>
+              <p>Descarte adequadamente os medicamentos vencidos, preferencialmente em pontos de coleta específicos em farmácias ou postos de saúde. Não jogue medicamentos no lixo comum ou no vaso sanitário, pois isso pode contaminar o meio ambiente.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h3>Posso interromper o tratamento quando me sentir melhor?</h3>
+              <i data-lucide="chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+              <p>Não é recomendado interromper um tratamento sem orientação médica, mesmo que os sintomas tenham desaparecido. Isso é especialmente importante para antibióticos, que devem ser tomados pelo período completo prescrito para garantir que a infecção seja completamente eliminada.</p>
+              <p>Interromper o tratamento prematuramente pode levar ao retorno dos sintomas, desenvolvimento de resistência a medicamentos (no caso de antibióticos) ou complicações da condição original. Sempre consulte seu médico antes de alterar ou interromper qualquer tratamento.</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h3>Quais são os riscos da automedicação?</h3>
+              <i data-lucide="chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+              <p>A automedicação pode trazer diversos riscos, como:</p>
+              <ul>
+                <li>Mascaramento de sintomas de doenças graves, atrasando o diagnóstico correto</li>
+                <li>Interações medicamentosas perigosas com outros medicamentos que você já esteja tomando</li>
+                <li>Reações alérgicas ou efeitos colaterais inesperados</li>
+                <li>Dosagem incorreta, levando a subdosagem (ineficácia) ou superdosagem (toxicidade)</li>
+                <li>Desenvolvimento de dependência, no caso de certos medicamentos</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <h3>Como descartar medicamentos corretamente?</h3>
+              <i data-lucide="chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+              <p>O descarte inadequado de medicamentos pode contaminar o solo e a água, afetando o meio ambiente e a saúde pública. A forma correta de descartar medicamentos é levá-los a pontos de coleta específicos, geralmente disponíveis em farmácias, postos de saúde ou estabelecimentos participantes de programas de logística reversa.</p>
+              <p>Nunca jogue medicamentos no vaso sanitário, pia ou lixo comum. Antes de descartar, remova os medicamentos de suas embalagens originais e descaracterize-os para evitar o uso indevido. As embalagens secundárias (caixas e bulas) podem ser descartadas no lixo reciclável, após removidas as informações pessoais.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="videos-content">
+        <div class="video-grid">
+          <div class="video-card">
+            <div class="video-thumbnail">
+              <img src="https://img.youtube.com/vi/Y0oEnFJWrgE/maxresdefault.jpg" alt="Uso Racional de Medicamentos">
+              <div class="play-button">
+                <i data-lucide="play"></i>
+              </div>
+            </div>
+            <div class="video-info">
+              <h3>Uso Racional de Medicamentos</h3>
+              <p>Aprenda sobre como utilizar medicamentos de forma segura e eficaz, evitando riscos à saúde.</p>
+              <a href="https://www.youtube.com/watch?v=Y0oEnFJWrgE" target="_blank" class="video-link">Assistir no YouTube</a>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-thumbnail">
+              <img src="https://img.youtube.com/vi/EF5ENehZG84/maxresdefault.jpg" alt="Armazenamento Correto de Medicamentos">
+              <div class="play-button">
+                <i data-lucide="play"></i>
+              </div>
+            </div>
+            <div class="video-info">
+              <h3>Armazenamento Correto de Medicamentos</h3>
+              <p>Dicas importantes sobre como armazenar seus medicamentos de forma segura em casa.</p>
+              <a href="https://www.youtube.com/watch?v=EF5ENehZG84" target="_blank" class="video-link">Assistir no YouTube</a>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-thumbnail">
+              <img src="https://img.youtube.com/vi/bLh4KZvYTrc/maxresdefault.jpg" alt="Perigos da Automedicação">
+              <div class="play-button">
+                <i data-lucide="play"></i>
+              </div>
+            </div>
+            <div class="video-info">
+              <h3>Perigos da Automedicação</h3>
+              <p>Entenda os riscos associados à prática da automedicação e por que consultar um profissional é essencial.</p>
+              <a href="https://www.youtube.com/watch?v=bLh4KZvYTrc" target="_blank" class="video-link">Assistir no YouTube</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="articles-content">
+        <div class="article-list">
+          <div class="article-card">
+            <div class="article-icon">
+              <i data-lucide="file-text"></i>
+            </div>
+            <div class="article-info">
+              <h3>Interações Medicamentosas: O que Você Precisa Saber</h3>
+              <p>Alguns medicamentos podem interagir entre si, alterando seus efeitos ou causando reações adversas. Este artigo explica como identificar possíveis interações e como evitá-las.</p>
+              <p class="article-meta">Fonte: Ministério da Saúde</p>
+            </div>
+          </div>
+
+          <div class="article-card">
+            <div class="article-icon">
+              <i data-lucide="file-text"></i>
+            </div>
+            <div class="article-info">
+              <h3>Antibióticos: Uso Correto e Resistência Bacteriana</h3>
+              <p>O uso inadequado de antibióticos contribui para o desenvolvimento de bactérias resistentes. Aprenda sobre a importância de seguir corretamente o tratamento com antibióticos.</p>
+              <p class="article-meta">Fonte: ANVISA</p>
+            </div>
+          </div>
+
+          <div class="article-card">
+            <div class="article-icon">
+              <i data-lucide="file-text"></i>
+            </div>
+            <div class="article-info">
+              <h3>Medicamentos na Gravidez e Amamentação</h3>
+              <p>Durante a gravidez e amamentação, é necessário ter cuidado especial com o uso de medicamentos. Este artigo aborda quais medicamentos são seguros e quais devem ser evitados.</p>
+              <p class="article-meta">Fonte: Sociedade Brasileira de Pediatria</p>
+            </div>
+          </div>
+
+          <div class="article-card">
+            <div class="article-icon">
+              <i data-lucide="file-text"></i>
+            </div>
+            <div class="article-info">
+              <h3>Medicamentos Genéricos: Qualidade e Economia</h3>
+              <p>Os medicamentos genéricos são alternativas mais econômicas e igualmente eficazes aos medicamentos de referência. Saiba mais sobre como identificá-los e seus benefícios.</p>
+              <p class="article-meta">Fonte: ANVISA</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Adicionar espaçador no final da página -->
+    <div class="page-spacer"></div>
+
+    <div class="bottom-nav">
+      <button class="nav-button" onclick="window.location.href='index.html'">
+        <i data-lucide="pill"></i>
+        <span>Medicamentos</span>
+      </button>
+      <button class="nav-button active">
+        <i data-lucide="book-open"></i>
+        <span>Educacional</span>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Inicializar ícones Lucide quando o DOM estiver carregado
+    document.addEventListener("DOMContentLoaded", () => {
+      // Inicializar ícones Lucide
+      const lucide = window.lucide;
+      lucide.createIcons();
+
+      // Configurar event listeners para as abas
+      const tabs = document.querySelectorAll(".tab");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          // Remover classe ativa de todas as abas
+          tabs.forEach((t) => t.classList.remove("active"));
+          tabContents.forEach((c) => c.classList.remove("active"));
+
+          // Adicionar classe ativa à aba clicada
+          tab.classList.add("active");
+
+          // Mostrar o conteúdo correspondente
+          const tabId = tab.dataset.tab;
+          document.getElementById(`${tabId}-content`).classList.add("active");
+        });
+      });
+
+      // Funcionalidade do accordion
+      const accordionHeaders = document.querySelectorAll(".accordion-header");
+      accordionHeaders.forEach((header) => {
+        header.addEventListener("click", () => {
+          const accordionItem = header.parentElement;
+          accordionItem.classList.toggle("active");
+        });
+      });
+
+      // Inicializar o primeiro item do accordion como aberto
+      const firstAccordionItem = document.querySelector(".accordion-item");
+      if (firstAccordionItem) {
+        firstAccordionItem.classList.add("active");
+      }
+    });
+  </script>
+</body>
+</html>
