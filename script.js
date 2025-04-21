@@ -56,15 +56,24 @@ let currentCategory = "all" // Categoria atual selecionada
 
 // Funções de navegação
 function navigateTo(pageId) {
+  console.log("Navegando para:", pageId)
+
   // Se for a página educacional, redirecionar para education.html
   if (pageId === "education") {
     window.location.href = "education.html"
     return
   }
 
+  // Verificar se a página existe
+  if (!pages[pageId]) {
+    console.error("Página não encontrada:", pageId)
+    return
+  }
+
   Object.values(pages).forEach((page) => {
-    page.classList.remove("active")
+    if (page) page.classList.remove("active")
   })
+
   pages[pageId].classList.add("active")
 
   // Atualizar botões de navegação inferior
@@ -182,7 +191,9 @@ function renderMedicinesList() {
         </div>
       `
 
+      // Adicionar evento de clique de forma mais explícita
       card.addEventListener("click", () => {
+        console.log("Card clicado, ID:", medicine.id)
         showMedicineDetails(medicine.id)
       })
 
@@ -224,11 +235,21 @@ function getCategoryIcon(categoryId) {
 
 // Atualizar a função showMedicineDetails para mostrar a categoria
 function showMedicineDetails(id) {
+  console.log("Mostrando detalhes do medicamento:", id)
   currentMedicineId = id
   const medicine = medicines.find((med) => med.id === id)
 
   if (!medicine) {
+    console.error("Medicamento não encontrado:", id)
     navigateTo("home")
+    return
+  }
+
+  console.log("Medicamento encontrado:", medicine)
+
+  // Verificar se os elementos existem antes de tentar acessá-los
+  if (!elements.detailName || !elements.detailDescription) {
+    console.error("Elementos de detalhe não encontrados")
     return
   }
 
@@ -241,6 +262,11 @@ function showMedicineDetails(id) {
 
   // Adicionar categoria ao cabeçalho do medicamento
   const medicineHeader = document.querySelector(".medicine-header")
+  if (!medicineHeader) {
+    console.error("Cabeçalho do medicamento não encontrado")
+    return
+  }
+
   const existingBadge = medicineHeader.querySelector(".category-badge")
   if (existingBadge) {
     existingBadge.remove()
@@ -257,6 +283,7 @@ function showMedicineDetails(id) {
   const lucide = window.lucide
   lucide.createIcons()
 
+  console.log("Navegando para a página de detalhes")
   navigateTo("detail")
 }
 
@@ -373,7 +400,7 @@ function setupEventListeners() {
       nome: elements.editName.value,
       descricao: elements.editDescription.value,
       dosagem: elements.editDosage.value,
-      uso: elements.editUsage.value,
+      uso: elements.editDosage.value,
       efeitosColaterais: elements.editSideEffects.value,
       contraindicacoes: elements.editContraindications.value,
       categoria: document.getElementById("edit-category").value,
@@ -548,11 +575,65 @@ function init() {
     loadMedicines()
   }
 
+  // Verificar se todos os elementos DOM necessários estão disponíveis
+  if (!pages.detail || !pages.home) {
+    console.error("Elementos de página não encontrados:", pages)
+  }
+
+  if (!elements.medicinesList) {
+    console.error("Lista de medicamentos não encontrada")
+  }
+
   setupEventListeners()
 }
 
-// Iniciar a aplicação quando o DOM estiver carregado
+// Modifique a inicialização para garantir que o DOM esteja completamente carregado
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM carregado, inicializando aplicação")
+
+  // Verificar se todos os elementos necessários estão disponíveis
+  pages.home = document.getElementById("home-page")
+  pages.detail = document.getElementById("detail-page")
+  pages.add = document.getElementById("add-page")
+  pages.edit = document.getElementById("edit-page")
+
+  elements.medicinesList = document.getElementById("medicines-list")
+  elements.emptyState = document.getElementById("empty-state")
+  elements.searchInput = document.getElementById("search-input")
+  elements.addButton = document.getElementById("add-button")
+
+  elements.detailName = document.getElementById("detail-name")
+  elements.detailDescription = document.getElementById("detail-description")
+  elements.detailDosage = document.getElementById("detail-dosage")
+  elements.detailUsage = document.getElementById("detail-usage")
+  elements.detailSideEffects = document.getElementById("detail-side-effects")
+  elements.detailContraindications = document.getElementById("detail-contraindications")
+  elements.detailBack = document.getElementById("detail-back")
+  elements.editButton = document.getElementById("edit-button")
+  elements.deleteButton = document.getElementById("delete-button")
+
+  elements.addForm = document.getElementById("add-form")
+  elements.addBack = document.getElementById("add-back")
+
+  elements.editForm = document.getElementById("edit-form")
+  elements.editId = document.getElementById("edit-id")
+  elements.editName = document.getElementById("edit-name")
+  elements.editDescription = document.getElementById("edit-description")
+  elements.editDosage = document.getElementById("edit-dosage")
+  elements.editUsage = document.getElementById("edit-usage")
+  elements.editSideEffects = document.getElementById("edit-side-effects")
+  elements.editContraindications = document.getElementById("edit-contraindications")
+  elements.editBack = document.getElementById("edit-back")
+
+  elements.deleteModal = document.getElementById("delete-modal")
+  elements.cancelDelete = document.getElementById("cancel-delete")
+  elements.confirmDelete = document.getElementById("confirm-delete")
+
+  elements.toast = document.getElementById("toast")
+  elements.toastMessage = document.getElementById("toast-message")
+
+  console.log("Elementos DOM:", { pages, elements })
+
   // Inicializar ícones Lucide
   const lucide = window.lucide
   lucide.createIcons()
