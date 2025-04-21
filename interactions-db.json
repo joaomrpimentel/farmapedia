@@ -1,0 +1,130 @@
+{
+    "interactions": [
+      {
+        "medicines": ["Paracetamol", "Ibuprofeno"],
+        "description": "Tomar paracetamol e ibuprofeno juntos pode aumentar o risco de efeitos colaterais renais e gastrointestinais. No entanto, em doses adequadas e por curtos períodos, essa combinação é frequentemente usada para controle da dor.",
+        "severity": "low"
+      },
+      {
+        "medicines": ["Paracetamol", "Dipirona"],
+        "description": "Não há interações significativas conhecidas entre paracetamol e dipirona. No entanto, ambos são analgésicos e antipiréticos, então tomar os dois juntos pode não oferecer benefício adicional significativo.",
+        "severity": "low"
+      },
+      {
+        "medicines": ["Ibuprofeno", "Aspirina"],
+        "description": "Tomar ibuprofeno e aspirina juntos pode reduzir os efeitos cardioprotetores da aspirina e aumentar o risco de problemas gastrointestinais, como úlceras e sangramento.",
+        "severity": "moderate"
+      },
+      {
+        "medicines": ["Amoxicilina", "Álcool"],
+        "description": "O consumo de álcool durante o tratamento com amoxicilina pode causar efeitos colaterais como náuseas, vômitos, dores de cabeça e possivelmente reduzir a eficácia do antibiótico.",
+        "severity": "moderate"
+      },
+      {
+        "medicines": ["Omeprazol", "Clopidogrel"],
+        "description": "O omeprazol pode reduzir a eficácia do clopidogrel, aumentando o risco de eventos cardiovasculares em pacientes que tomam clopidogrel para prevenir coágulos sanguíneos.",
+        "severity": "high"
+      },
+      {
+        "medicines": ["Varfarina", "Aspirina"],
+        "description": "A combinação de varfarina e aspirina aumenta significativamente o risco de sangramento, pois ambos os medicamentos afetam a coagulação sanguínea.",
+        "severity": "high"
+      },
+      {
+        "medicines": ["Fluoxetina", "Tramadol"],
+        "description": "Esta combinação aumenta o risco de síndrome serotoninérgica, uma condição potencialmente fatal caracterizada por agitação, alucinações, batimentos cardíacos rápidos, febre, reflexos exagerados, tremores e outros sintomas.",
+        "severity": "high"
+      },
+      {
+        "medicines": ["Amoxicilina", "Contraceptivos Orais"],
+        "description": "A amoxicilina pode reduzir a eficácia dos contraceptivos orais, aumentando o risco de gravidez não planejada. Recomenda-se o uso de métodos contraceptivos adicionais durante o tratamento com antibióticos.",
+        "severity": "moderate"
+      },
+      {
+        "medicines": ["Ibuprofeno", "Diclofenaco"],
+        "description": "Tomar dois anti-inflamatórios não esteroidais (AINEs) juntos aumenta significativamente o risco de efeitos colaterais gastrointestinais, como úlceras e sangramento, sem proporcionar benefício analgésico adicional significativo.",
+        "severity": "high"
+      },
+      {
+        "medicines": ["Omeprazol", "Ferro"],
+        "description": "O omeprazol pode reduzir a absorção de ferro, potencialmente levando a deficiência de ferro em tratamentos prolongados. Recomenda-se tomar suplementos de ferro pelo menos 2 horas antes ou 4 horas após o omeprazol.",
+        "severity": "low"
+      },
+      {
+        "medicines": ["Metformina", "Álcool"],
+        "description": "O consumo de álcool durante o tratamento com metformina aumenta o risco de hipoglicemia (baixo nível de açúcar no sangue) e acidose láctica, uma condição rara mas grave.",
+        "severity": "moderate"
+      },
+      {
+        "medicines": ["Azitromicina", "Amoxicilina"],
+        "description": "Não há interações significativas conhecidas entre azitromicina e amoxicilina. No entanto, tomar dois antibióticos simultaneamente sem orientação médica não é recomendado, pois pode aumentar o risco de efeitos colaterais sem benefício adicional.",
+        "severity": "low"
+      },
+      {
+        "medicines": ["Loratadina", "Dipirona"],
+        "description": "Não há interações significativas conhecidas entre loratadina e dipirona. Estes medicamentos podem ser tomados juntos com segurança quando necessário.",
+        "severity": "low"
+      },
+      {
+        "medicines": ["Dexametasona", "Ibuprofeno"],
+        "description": "A combinação de dexametasona e ibuprofeno aumenta o risco de efeitos colaterais gastrointestinais, como úlceras e sangramento. Se esta combinação for necessária, deve ser usada pelo menor tempo possível e com monitoramento médico.",
+        "severity": "moderate"
+      },
+      {
+        "medicines": ["Dipirona", "Ibuprofeno"],
+        "description": "Tomar dipirona e ibuprofeno juntos aumenta o risco de efeitos colaterais renais e gastrointestinais. Esta combinação deve ser evitada ou usada com cautela e por curtos períodos.",
+        "severity": "moderate"
+      },
+      {
+        "medicines": ["Atenolol", "Ibuprofeno"],
+        "description": "O ibuprofeno e outros AINEs podem reduzir o efeito anti-hipertensivo do atenolol e outros betabloqueadores, resultando em controle inadequado da pressão arterial.",
+        "severity": "moderate"
+      },
+      {
+        "medicines": ["Losartana", "Ibuprofeno"],
+        "description": "O uso concomitante de losartana e ibuprofeno pode diminuir a eficácia anti-hipertensiva da losartana e aumentar o risco de insuficiência renal, especialmente em pacientes idosos ou desidratados.",
+        "severity": "moderate"
+      },
+      {
+        "medicines": ["Sinvastatina", "Azitromicina"],
+        "description": "A azitromicina pode aumentar os níveis sanguíneos de sinvastatina, aumentando o risco de miopatia e rabdomiólise (destruição das fibras musculares).",
+        "severity": "moderate"
+      },
+      {
+        "medicines": ["Fluoxetina", "Aspirina"],
+        "description": "A combinação de fluoxetina e aspirina aumenta o risco de sangramento, especialmente gastrointestinal, devido aos efeitos da fluoxetina na função plaquetária.",
+        "severity": "moderate"
+      },
+      {
+        "medicines": ["Varfarina", "Ibuprofeno"],
+        "description": "O ibuprofeno pode aumentar o efeito anticoagulante da varfarina, elevando significativamente o risco de sangramento. Esta combinação deve ser evitada ou usada com extrema cautela e monitoramento médico rigoroso.",
+        "severity": "high"
+      },
+      {
+        "medicines": ["Levotiroxina", "Omeprazol"],
+        "description": "O omeprazol pode reduzir a absorção da levotiroxina, diminuindo sua eficácia no tratamento do hipotireoidismo. Recomenda-se tomar a levotiroxina pelo menos 30-60 minutos antes do omeprazol.",
+        "severity": "moderate"
+      },
+      {
+        "medicines": ["Metformina", "Clopidogrel"],
+        "description": "Não há interações significativas conhecidas entre metformina e clopidogrel. Estes medicamentos podem ser tomados juntos com segurança quando prescritos.",
+        "severity": "low"
+      },
+      {
+        "medicines": ["Atenolol", "Fluoxetina"],
+        "description": "A fluoxetina pode aumentar os níveis sanguíneos de atenolol, potencializando seus efeitos e aumentando o risco de bradicardia (frequência cardíaca baixa) e hipotensão.",
+        "severity": "moderate"
+      },
+      {
+        "medicines": ["Tramadol", "Dipirona"],
+        "description": "A combinação de tramadol e dipirona pode ser eficaz para o controle da dor, mas aumenta o risco de efeitos adversos como náuseas, vômitos e tontura. Use com cautela e apenas conforme prescrito.",
+        "severity": "low"
+      },
+      {
+        "medicines": ["Sinvastatina", "Amoxicilina"],
+        "description": "Não há interações significativas conhecidas entre sinvastatina e amoxicilina. Estes medicamentos podem ser tomados juntos com segurança quando necessário.",
+        "severity": "low"
+      }
+    ]
+  }
+  
