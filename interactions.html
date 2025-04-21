@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmapédia - Interações Medicamentosas</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Importando Lucide Icons via CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Adicionar favicon com emoji -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💊</text></svg>">
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <div class="logo">
+        <i data-lucide="git-compare"></i>
+        <h1>Interações</h1>
+      </div>
+      <p class="subtitle">Verifique possíveis interações entre medicamentos</p>
+    </header>
+
+    <div class="interaction-container">
+      <div class="form-container">
+        <div class="form-icon">
+          <i data-lucide="git-compare"></i>
+        </div>
+        
+        <div class="form-group">
+          <label>Selecione os medicamentos para verificar interações</label>
+          <div class="selected-medicines" id="selected-medicines">
+            <!-- Medicamentos selecionados serão exibidos aqui -->
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="medicine-selector">Adicionar medicamento</label>
+          <div class="medicine-selector-container">
+            <select id="medicine-selector" class="category-select">
+              <option value="">Selecione um medicamento...</option>
+              <!-- Opções serão preenchidas via JavaScript -->
+            </select>
+            <button type="button" id="add-medicine-btn" class="add-medicine-button">
+              <i data-lucide="plus"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="button" id="check-interactions-btn" class="submit-button">Verificar Interações</button>
+      </div>
+
+      <div id="interactions-results" class="interactions-results">
+        <!-- Resultados serão exibidos aqui -->
+      </div>
+
+      <div id="no-interactions-message" class="no-interactions-message" style="display: none;">
+        <i data-lucide="check-circle"></i>
+        <p>Nenhuma interação conhecida encontrada entre os medicamentos selecionados.</p>
+      </div>
+
+      <div id="loading-indicator" class="loading-indicator" style="display: none;">
+        <i data-lucide="loader"></i>
+        <p>Verificando interações...</p>
+      </div>
+    </div>
+
+    <!-- Adicionar espaçador no final da página -->
+    <div class="page-spacer"></div>
+
+    <div class="bottom-nav">
+      <button class="nav-button" onclick="window.location.href='index.html'">
+        <i data-lucide="pill"></i>
+        <span>Medicamentos</span>
+      </button>
+      <button class="nav-button active">
+        <i data-lucide="git-compare"></i>
+        <span>Interações</span>
+      </button>
+      <button class="nav-button" onclick="window.location.href='education.html'">
+        <i data-lucide="book-open"></i>
+        <span>Educacional</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="interactions.js"></script>
+</body>
+</html>
